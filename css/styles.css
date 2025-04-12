@@ -1,20 +1,26 @@
+/* Global Styling */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #F3F3F3; /* Neutral Background */
+  color: #5D5A58; /* Warm Gray Text */
 }
 
 header {
-  background-color: #28A745;
+  background-color: #7851A9; /* Royal Purple */
   color: white;
   padding: 1rem;
+  text-align: center;
 }
 
 nav ul {
   list-style-type: none;
   display: flex;
+  justify-content: center;
   gap: 1rem;
   padding: 0;
+  margin: 0;
 }
 
 nav ul li a {
@@ -23,18 +29,119 @@ nav ul li a {
 }
 
 main {
-  padding: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center; /* Center-aligns cards */
 }
 
-button {
-  background-color: #FFC107;
+/* Card Styles */
+.card {
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 600px; /* Keeps cards a consistent size */
+  text-align: center;
+}
+
+.card h2 {
+  color: #7851A9; /* Royal Purple */
+}
+
+.card button {
+  background-color: #F5C71A; /* Gold Accent */
+  color: #5D5A58; /* Warm Gray Text */
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  border-radius: 4px;
 }
 
+.card button:hover {
+  background-color: #E0B410; /* Slightly darker gold for hover effect */
+}
+
+/* Remove Bullet Points From Lists */
+.card ul {
+  list-style-type: none; /* Removes bullets */
+  padding: 0; /* Removes padding */
+  margin: 0; /* Removes margin */
+}
+
+.card ul li {
+  padding: 0.5rem 0; /* Adds spacing between list items */
+  border-bottom: 1px solid #A5A5A5; /* Darkened divider line for clarity */
+}
+
+.card ul li:last-child {
+  border-bottom: none; /* Removes divider from the last item */
+}
+
+/* Footer Styling */
 footer {
   text-align: center;
   padding: 1rem;
-  background-color: #F8D7A3;
+  background-color: #7851A9; /* Royal Purple */
+  color: white;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+    width: 90%; /* Adjust card width for smaller screens */
+  }
+
+  .card h2 {
+    font-size: 1.25rem; /* Slightly smaller headings */
+  }
+
+  .card button {
+    padding: 0.5rem;
+    font-size: 0.875rem; /* Adjust button size */
+  }
+
+  footer {
+    font-size: 0.875rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header {
+    padding: 0.5rem;
+  }
+
+  nav ul {
+    font-size: 0.875rem;
+  }
+
+  main {
+    padding: 0.5rem;
+  }
+
+  .card {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .card button {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
 }
