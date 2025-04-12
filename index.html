@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshBin - Your Smart Pantry Companion</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>FreshBin</h1>
+    <nav>
+      <ul>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#pantry">Pantry</a></li>
+        <li><a href="#recipes">Recipes</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="dashboard">
+      <h2>Dashboard</h2>
+      <p>Items expiring soon:</p>
+      <ul id="expiring-items">
+        <!-- Dynamically populated -->
+      </ul>
+    </section>
+
+    <section id="pantry">
+      <h2>Your Pantry</h2>
+      <button id="scan-item">Scan Item</button>
+      <ul id="pantry-list">
+        <!-- Dynamically populated -->
+      </ul>
+    </section>
+
+    <section id="recipes">
+      <h2>Recipe Suggestions</h2>
+      <ul id="recipe-list">
+        <!-- Dynamically populated -->
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 FreshBin</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

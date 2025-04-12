@@ -1,0 +1,12 @@
+{
+  "pantry": [
+    { "name": "Milk", "expiration": "2025-04-15" },
+    { "name": "Eggs", "expiration": "2025-04-17" },
+    { "name": "Carrots", "expiration": "2025-04-10" }
+  ],
+  "recipes": [
+    { "name": "Carrot Soup" },
+    { "name": "Omelette" },
+    { "name": "Pancakes" }
+  ]
+}
