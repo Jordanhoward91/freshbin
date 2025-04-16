@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FreshBin - Home</title>
+  <title>Pantry - FreshBin</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -11,23 +11,31 @@
     <h1>FreshBin</h1>
     <nav>
       <ul>
+        <li><a href="index.html">Home</a></li>
         <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="pantry.html">Pantry</a></li>
         <li><a href="recipes.html">Recipes</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section>
-      <h2>Welcome to FreshBin!</h2>
-      <p>Manage your pantry, plan meals, and reduce food waste.</p>
-    </section>
+	<section id="pantry">
+	<h2>Your Pantry</h2>
+	<button id="scan-item">Scan Item</button>
+	<button id="manual-entry" onclick="location.href='manual-entry.html'">Manual Entry</button> <!-- Added Manual Entry Button -->
+	<video id="barcode-video" autoplay></video>
+	<ul id="pantry-list">
+		<!-- Dynamically populated -->
+	</ul>
+	</section>
+
   </main>
 
   <footer>
     <p>&copy; 2025 FreshBin</p>
     <p>Jordan Howard | WDD 330</p>
   </footer>
+
+  <script src="js/pantry.js"></script>
 </body>
 </html>

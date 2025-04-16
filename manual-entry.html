@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual Entry - FreshBin</title>
+  <link rel="stylesheet" href="css/form-styles.css">
+</head>
+<body>
+  <header>
+    <h1>FreshBin</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="pantry.html">Pantry</a></li>
+        <li><a href="recipes.html">Recipes</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+	  <section id="manual-entry">
+		  <form id="manual-entry-form">
+		  <h2>Manual Entry Form</h2>
+        <!-- Mandatory Fields -->
+        <label for="item-name">Item Name *</label>
+        <input type="text" id="item-name" name="item-name" required>
+
+        <label for="expiration-date">Expiration Date *</label>
+        <input type="date" id="expiration-date" name="expiration-date" required>
+
+        <label for="quantity">Quantity *</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+
+        <label for="category">Category *</label>
+        <select id="category" name="category" required>
+          <option value="">Select Category</option>
+          <option value="Dairy">Dairy</option>
+          <option value="Produce">Produce</option>
+          <option value="Grains">Grains</option>
+          <option value="Meat">Meat</option>
+          <option value="Frozen">Frozen</option>
+        </select>
+
+        <!-- Optional Fields -->
+        <label for="notes">Notes</label>
+        <textarea id="notes" name="notes" placeholder="e.g., Organic, Unopened"></textarea>
+
+        <label for="unit">Unit of Measure</label>
+        <input type="text" id="unit" name="unit" placeholder="e.g., lbs, kg, items">
+
+        <label for="purchase-date">Purchase Date</label>
+        <input type="date" id="purchase-date" name="purchase-date">
+
+        <label for="storage-location">Storage Location</label>
+        <input type="text" id="storage-location" name="storage-location" placeholder="e.g., Fridge, Freezer">
+
+        <label for="tags">Tags</label>
+        <input type="text" id="tags" name="tags" placeholder="e.g., Breakfast, Special Diet">
+
+        <label for="priority">Priority</label>
+        <input type="checkbox" id="priority" name="priority"> Mark as high priority
+
+        <!-- Submit Button -->
+        <button type="submit">Add Item</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 FreshBin</p>
+    <p>Jordan Howard | WDD 330</p>
+  </footer>
+
+  <script src="js/manual-entry.js"></script>
+</body>
+</html>

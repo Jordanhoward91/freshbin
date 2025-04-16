@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FreshBin - Home</title>
+  <title>Dashboard - FreshBin</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
     <h1>FreshBin</h1>
     <nav>
       <ul>
-        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="pantry.html">Pantry</a></li>
         <li><a href="recipes.html">Recipes</a></li>
       </ul>
@@ -19,9 +19,12 @@
   </header>
 
   <main>
-    <section>
-      <h2>Welcome to FreshBin!</h2>
-      <p>Manage your pantry, plan meals, and reduce food waste.</p>
+    <section id="dashboard">
+      <h2>Dashboard</h2>
+      <p>Items expiring soon:</p>
+      <ul id="expiring-items">
+        <!-- Dynamically populated -->
+      </ul>
     </section>
   </main>
 
@@ -29,5 +32,7 @@
     <p>&copy; 2025 FreshBin</p>
     <p>Jordan Howard | WDD 330</p>
   </footer>
+
+  <script src="js/dashboard.js"></script>
 </body>
 </html>
