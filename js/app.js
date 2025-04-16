@@ -63,39 +63,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Barcode scanning logic
-  scanButton.addEventListener("click", async () => {
-    if ('BarcodeDetector' in window) {
-      const barcodeDetector = new BarcodeDetector({ formats: ['ean_13', 'qr_code'] });
-
-      try {
-        // Access the user's camera
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        barcodeVideo.srcObject = stream;
-
-        barcodeVideo.onloadedmetadata = async () => {
-          barcodeVideo.play(); // Ensure video playback starts
-          try {
-            const barcodes = await barcodeDetector.detect(barcodeVideo);
-            if (barcodes.length > 0) {
-              console.log("Scanned barcode:", barcodes[0].rawValue);
-              alert(`Scanned Barcode: ${barcodes[0].rawValue}`); // Display result to the user
-            } else {
-              alert("No barcode detected. Please try again.");
-            }
-          } catch (err) {
-            console.error("Barcode detection failed:", err);
-          }
-        };
-      } catch (err) {
-        console.error("Error accessing camera:", err);
-        alert("Unable to access the camera. Please check your browser permissions.");
+  // Barcode scanning logic using QuaggaJS
+  scanButton.addEventListener("click", () => {
+    Quagga.init({
+      inputStream: {
+        name: "Live",
+        type: "LiveStream",
+        target: barcodeVideo // Attach the video element
+      },
+      decoder: {
+        readers: ["ean_reader", "code_128_reader"] // Specify barcode formats
       }
-    } else {
-      alert("Barcode Detector API is not supported in your browser.");
-    }
-  });
+    }, (err) => {
+      if (err) {
+        console.error("Error initializing Quagga:", err);
+        alert("Failed to start barcode scanning. Please try again.");
+        return;
+      }
+      Quagga.start(); // Start the scanner
+    });
 
+    // Listen for barcode detection
+    Quagga.onDetected((result) => {
+      const code = result.codeResult.code;
+      console.log("Barcode detected:", code);
+      alert(`Detected Barcode: ${code}`); // Display result
+      Quagga.stop(); // Stop the scanner after detection
+    });
+  });
 
   // Fetch recipes logic
   fetchRecipesButton.addEventListener("click", async () => {
