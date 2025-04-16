@@ -36,6 +36,8 @@ main {
   align-items: center; /* Center-aligns cards */
 }
 
+
+
 /* Card Styles */
 .card {
   background: white;
@@ -90,6 +92,68 @@ main {
   border: 2px solid #7851A9; /* Adds a border for better visual styling */
   border-radius: 8px; /* Rounds the corners for consistency */
 }
+
+/* Center the Pantry Section Content */
+#pantry {
+  text-align: center; /* Centers all content in the section */
+  margin: 0 auto;
+  padding: 2rem 1rem; /* Adds padding for spacing */
+}
+
+/* Center and Style the Heading */
+#pantry h2 {
+  font-size: 2rem; /* Increase the size for better visibility */
+  color: #7851A9; /* Royal Purple */
+  margin-bottom: 1.5rem; /* Space below the heading */
+}
+
+/* Style and Align Buttons */
+#pantry button {
+  display: inline-block; /* Keeps buttons inline */
+  padding: 0.75rem 1.5rem; /* Larger buttons for a more interactive feel */
+  background-color: #7851A9; /* Royal Purple */
+  color: white; /* White text for contrast */
+  border: none;
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0.5rem; /* Adds spacing between buttons */
+}
+
+#pantry button:hover {
+  background-color: #5B3D7C; /* Darker purple for hover effect */
+}
+
+#pantry button:active {
+  background-color: #3A2755; /* Even darker purple on click */
+}
+
+/* Remove Bullet Points From Pantry List */
+#pantry ul {
+  list-style-type: none; /* Removes bullet points */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+
+#pantry ul li {
+  padding: 0.5rem 0; /* Adds spacing between items for readability */
+  border-bottom: 1px solid #A5A5A5; /* Optional: Add a subtle divider for clarity */
+}
+
+#pantry ul li:last-child {
+  border-bottom: none; /* Removes divider from the last item */
+}
+
+
+/* Center and Style the Video */
+#barcode-video {
+  display: block;
+  margin: 1.5rem auto; /* Centers video and adds spacing */
+  max-width: 100%; /* Ensures the video scales on smaller screens */
+  border: 2px solid #7851A9; /* Purple border for consistency */
+  border-radius: 8px; /* Rounded edges */
+}
+
 
 
 /* Footer Styling */
