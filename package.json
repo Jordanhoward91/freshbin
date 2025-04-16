@@ -1,0 +1,17 @@
+{
+  "name": "freshbin",
+  "version": "1.0.0",
+  "description": "The best cooking aid you will ever need",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.6.1",
+  "dependencies": {
+    "vite": "^6.3.0"
+  }
+}

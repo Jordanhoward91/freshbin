@@ -30,6 +30,7 @@
     <section id="pantry" class="card">
       <h2>Your Pantry</h2>
       <button id="scan-item">Scan Item</button>
+      <video id="barcode-video" autoplay></video> <!-- Video feed for barcode scanning -->
       <ul id="pantry-list">
         <!-- Dynamically populated -->
       </ul>
@@ -37,6 +38,7 @@
 
     <section id="recipes" class="card">
       <h2>Recipe Suggestions</h2>
+      <button id="fetch-recipes">Get Recipe Suggestions</button> <!-- Fetch recipes button -->
       <ul id="recipe-list">
         <!-- Dynamically populated -->
       </ul>
@@ -44,9 +46,11 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 FreshBin | Jordan Howard | WDD 330</p>
+    <p>&copy; 2025 FreshBin</p>
+    <p>Jordan Howard | WDD 330</p>
   </footer>
 
+  <script src="js/api.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

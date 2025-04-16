@@ -1,50 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const pantryList = document.getElementById("pantry-list");
-  const expiringItemsList = document.getElementById("expiring-items");
+  const barcodeVideo = document.getElementById("barcode-video");
+  const scanButton = document.getElementById("scan-item");
+  const fetchRecipesButton = document.getElementById("fetch-recipes");
   const recipeList = document.getElementById("recipe-list");
 
-  // Load mock pantry data (replace with API integration later)
-  fetch('data/mockData.json')
-    .then(response => response.json())
-    .then(data => {
-      populatePantry(data.pantry);
-      populateExpiringItems(data.pantry);
-      populateRecipes(data.recipes);
-    });
+  // Start barcode scanning
+  scanButton.addEventListener("click", async () => {
+    if ('BarcodeDetector' in window) {
+      const barcodeDetector = new BarcodeDetector({ formats: ['ean_13', 'qr_code'] });
 
-  // Populate pantry section
-  const populatePantry = (pantry) => {
-    pantry.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = `${item.name} - Expires: ${item.expiration}`;
-      pantryList.appendChild(li);
-    });
-  };
+      // Access the user's camera
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      barcodeVideo.srcObject = stream;
 
-  // Populate expiring items
-  const populateExpiringItems = (pantry) => {
-    const expiringSoon = pantry.filter(item => isExpiringSoon(item.expiration));
-    expiringSoon.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = `${item.name} - Expires: ${item.expiration}`;
-      expiringItemsList.appendChild(li);
-    });
-  };
+      barcodeVideo.addEventListener("loadeddata", async () => {
+        try {
+          const barcodes = await barcodeDetector.detect(barcodeVideo);
+          if (barcodes.length > 0) {
+            console.log("Scanned barcode:", barcodes[0].rawValue);
+          }
+        } catch (err) {
+          console.error("Barcode detection failed:", err);
+        }
+      });
+    } else {
+      alert("Barcode Detector API is not supported in your browser.");
+    }
+  });
 
-  // Check if an item is expiring soon
-  const isExpiringSoon = (expiration) => {
-    const today = new Date();
-    const expiryDate = new Date(expiration);
-    const diff = expiryDate - today;
-    return diff > 0 && diff <= 7 * 24 * 60 * 60 * 1000; // 7 days
-  };
-
-  // Populate recipes section
-  const populateRecipes = (recipes) => {
+  // Fetch recipes
+  fetchRecipesButton.addEventListener("click", async () => {
+    const recipes = await fetchRecipeSuggestions("chicken"); // Example search keyword
+    recipeList.innerHTML = ""; // Clear previous recipes
     recipes.forEach(recipe => {
       const li = document.createElement("li");
-      li.textContent = recipe.name;
+      li.textContent = recipe.strMeal; // Recipe name
       recipeList.appendChild(li);
     });
-  };
+  });
 });
