@@ -45,6 +45,7 @@ main {
   width: 100%;
   max-width: 600px; /* Keeps cards a consistent size */
   text-align: center;
+  margin: 0 auto; /* Centers the card itself */
 }
 
 .card h2 {
@@ -79,6 +80,16 @@ main {
 .card ul li:last-child {
   border-bottom: none; /* Removes divider from the last item */
 }
+
+/* Video Element Styling */
+#barcode-video {
+  display: block; /* Centers the video horizontally */
+  margin: 0 auto; /* Adds auto margin for horizontal centering */
+  max-width: 100%; /* Prevents the video from exceeding its container */
+  border: 2px solid #7851A9; /* Adds a border for better visual styling */
+  border-radius: 8px; /* Rounds the corners for consistency */
+}
+
 
 /* Footer Styling */
 footer {
