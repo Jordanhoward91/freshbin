@@ -164,6 +164,29 @@ footer {
   color: white;
 }
 
+/* Sticky Footer Layout */
+html, body {
+  height: 100%; /* Ensure the page takes up the full height of the viewport */
+  margin: 0; /* Remove default margin */
+}
+
+body {
+  display: flex; /* Use Flexbox to align elements */
+  flex-direction: column; /* Stack elements vertically */
+}
+
+main {
+  flex: 1; /* Allow the main content to grow and take up available space */
+}
+
+footer {
+  background-color: #7851A9; /* Royal Purple for consistency */
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
   body {
